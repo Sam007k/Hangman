@@ -1,0 +1,192 @@
+@import './breakpoints/breakpoints.scss';
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #34495e;
+    color: #fff;    
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+    overflow: hidden;    
+
+    @include media("<tablet"){
+       width: 400px;
+       min-height: 80vh;
+        text-align: center;
+    }
+}
+
+h1{
+    margin: 20px 0 0;
+    @include media("<tablet"){      
+        text-align: center;
+    }
+}
+
+p{
+    padding: 10px;
+    @include media("<tablet"){        
+        text-align: center;
+    }
+}
+
+.game-container{
+
+    padding: 10px 30px;
+    margin: auto;
+    position: relative;
+    height: 350px;
+    width: 450px;
+
+    @include media("<tablet"){            
+        width: 400px;                 
+        text-align: center;
+    }
+
+    @include media(">375","<425"){     
+        width: 400px;
+         
+        text-align: center;
+    }
+
+    .questions{
+        padding: 10px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+  .figure-container{
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 4px;
+    stroke-linecap: round;
+
+    .figure-part{
+        display: none ;
+    }
+   
+  }
+
+  .blanks{
+    display: flex;
+    position: absolute;
+    border: 10px;
+    left: 50%;
+    transform: translate(-50%);
+
+    .letters{        
+        border-bottom: 3px solid #2980b9;
+        display: inline-flex;
+        font-size: 30px;
+        margin: 0 5px;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 20px;
+    }
+  }
+
+  .wrong-letters-container{
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+
+      p{
+          margin: 0 0 5px;
+      }
+
+      span{
+          font-size: 24px;
+      }
+  }
+
+  
+
+  
+
+}
+
+.popup-container{
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;    
+    background-color:rgba(0, 0, 0, 0.3);
+    // display: flex;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    @include media("<425px"){
+        top: 1;
+    }
+
+ 
+
+
+
+    .popup{   
+    width: 300px;
+    height: 150px;
+    border-radius: 5px;
+    background-color: #2980b9;
+    box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    }    
+
+    .btn{        
+        margin-top: 20px;
+        padding: 12px 20px;
+        border-radius: 5px;
+        border: 0;
+        background-color: #fff;
+        color: #2980b9;
+        font-size: 16px;
+
+        &:focus{
+            outline: 0;
+        }
+
+        &:active{
+            transform: scale(0.98);
+        }
+    }
+  }
+
+.notification{
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    color: #fff;
+    bottom: -68px;   
+    border-radius: 10px 10px 0 0;
+    padding: 15px 20px;
+    transition: transform 0.3s ease-in-out;
+
+    p{
+        margin: 0;
+    }
+
+    &.show{
+        transform: translateY(-68px);       
+
+        @include media("<425px"){
+            transform: translateY(-88px);       
+
+        }
+     
+    }
+}
+

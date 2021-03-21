@@ -64,7 +64,7 @@ function displayWord() {
 
 
 // Keydown letter press
-window.addEventListener('pointerdown', e => {
+window.addEventListener('touchstart', e => {
     // console.log(e.keyCode);
     if (e.keyCode >= 65 && e.keyCode <= 90) {
       const letter = e.key;

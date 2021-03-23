@@ -64,8 +64,36 @@ function displayWord() {
 
 
 // Keydown letter press
-window.addEventListener('touchstart', e => {
-    // console.log(e.keyCode);
+window.addEventListener('keyup', e => {
+ 
+  
+    console.log(e.keyCode);
+    if (e.keyCode >= 65 && e.keyCode <= 90) {
+      const letter = e.key;
+  
+      if (selectedWord.includes(letter)) {
+        if (!correctLetters.includes(letter)) {
+          correctLetters.push(letter);
+  
+          displayWord();
+        } else {
+          showNotification();
+        }
+      } else {
+        if (!wrongLetters.includes(letter)) {
+          wrongLetters.push(letter);
+  
+          updateWrongLettersEl();
+        } else {
+          showNotification();
+        }
+      }
+    }
+  });
+
+  window.addEventListener('touchstart', e => {
+  
+    console.log(e.keyCode);
     if (e.keyCode >= 65 && e.keyCode <= 90) {
       const letter = e.key;
   
